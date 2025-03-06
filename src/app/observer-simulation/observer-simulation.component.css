@@ -1,0 +1,99 @@
+/* Overall container styling with a DOS retro look */
+#observer-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Dropdown styling */
+.example-selector {
+  margin-bottom: 20px;
+}
+
+/* Simulation area: fixed size with a dashed border */
+.simulation {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto 20px auto;
+  border: 2px dashed #0f0;
+}
+
+/* Central subject styling */
+.subject {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #000;
+  border: 2px solid #0f0;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.5s;
+}
+
+/* Observer nodes styling (circles) */
+.observer {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #000;
+  border: 2px solid #0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s, border-color 0.5s;
+}
+
+/* Manually position observers around the subject */
+#observer-0 { top: 10%; left: 50%; transform: translate(-50%, 0); }
+#observer-1 { top: 50%; left: 85%; transform: translate(-50%, -50%); }
+#observer-2 { top: 85%; left: 50%; transform: translate(-50%, -100%); }
+#observer-3 { top: 50%; left: 15%; transform: translate(-50%, -50%); }
+#observer-4 { top: 15%; left: 15%; transform: translate(0, 0); }
+
+/* Notified observer styling */
+.notified {
+  background: #0f0;
+  color: #000;
+  border-color: #ff0;
+}
+
+/* Button styling */
+button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 10px 20px;
+  margin: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+
+/* Log area styling */
+#log {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Legend / Key styling */
+#key {
+  margin-top: 20px;
+  text-align: left;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+}

@@ -1,0 +1,53 @@
+<div id="chain-container">
+  <h1>Design Pattern Simulation: Sender & Handlers</h1>
+  
+  <!-- Dropdown for selecting simulation type -->
+  <div class="example-selector">
+    <label for="exampleSelect">Choose an example:</label>
+    <select id="exampleSelect">
+      <option value="chain" selected>Chain of Responsibility</option>
+      <option value="pipeline">Request Pipeline</option>
+      <option value="button">Button Handler</option>
+    </select>
+  </div>
+  
+  <!-- Simulation area with 3 columns -->
+  <div class="simulation">
+    <!-- Left column: Sender (row 0) and Handlers (rows 1+) -->
+    <div class="left-column">
+      <div class="node sender" id="node-0">Sender</div>
+      <div class="node handler" id="node-1">Handler 0</div>
+      <div class="node handler" id="node-2">Handler 1</div>
+      <div class="node handler" id="node-3">Handler 2</div>
+      <div class="node handler" id="node-4">Handler 3</div>
+    </div>
+    <!-- Middle column: Status for each row -->
+    <div class="middle-column">
+      <div class="status" id="status-0">—</div>
+      <div class="status" id="status-1">—</div>
+      <div class="status" id="status-2">—</div>
+      <div class="status" id="status-3">—</div>
+      <div class="status" id="status-4">—</div>
+    </div>
+    <!-- Right column: Moving message -->
+    <div class="right-column">
+      <div id="message" class="message hidden">Message</div>
+    </div>
+  </div>
+  
+  <!-- Control Buttons -->
+  <button id="startMessage">Start Messages</button>
+  <button id="stopMessage">Stop Messages</button>
+  
+  <!-- Log area for textual description -->
+  <div id="log"></div>
+  
+  <!-- Key/legend for terms -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Sender:</strong> Emits the message.</p>
+    <p><strong>Handler/Middleware/Button Handler:</strong> May process (handle) or pass the message.</p>
+    <p><strong>Handled:</strong> Message processed (yellow border).</p>
+    <p><strong>Passed:</strong> Message not processed at that node.</p>
+  </div>
+</div>

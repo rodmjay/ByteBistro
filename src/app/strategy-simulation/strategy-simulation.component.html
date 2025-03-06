@@ -1,0 +1,33 @@
+<div id="strategy-container">
+  <h1>Design Pattern Simulation: Strategy Pattern</h1>
+  
+  <!-- Dropdown to select a strategy -->
+  <div class="example-selector">
+    <label for="strategySelect">Select Strategy:</label>
+    <select id="strategySelect">
+      <option value="aggressive" selected>Aggressive</option>
+      <option value="defensive">Defensive</option>
+      <option value="balanced">Balanced</option>
+    </select>
+  </div>
+  
+  <!-- Simulation area: displays the context -->
+  <div class="simulation">
+    <div id="context" class="context">Idle</div>
+  </div>
+  
+  <!-- Control Button -->
+  <button id="executeStrategy">Execute Strategy</button>
+  
+  <!-- Log area for textual description -->
+  <div id="log"></div>
+  
+  <!-- Key/Legend -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Context:</strong> The central object that adapts its behavior based on the strategy.</p>
+    <p><strong>Aggressive:</strong> Represents a fast, bold approach (e.g., red background).</p>
+    <p><strong>Defensive:</strong> Represents a cautious, safe approach (e.g., blue background).</p>
+    <p><strong>Balanced:</strong> Represents a moderate approach (e.g., green background).</p>
+  </div>
+</div>

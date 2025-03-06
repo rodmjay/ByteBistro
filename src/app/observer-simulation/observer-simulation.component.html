@@ -1,0 +1,39 @@
+<div id="observer-container">
+  <h1>Design Pattern Simulation: Observer Pattern</h1>
+  
+  <!-- Dropdown for selecting simulation mode -->
+  <div class="example-selector">
+    <label for="exampleSelect">Simulation Mode:</label>
+    <select id="exampleSelect">
+      <option value="all" selected>Notify All</option>
+      <option value="random">Notify Random</option>
+    </select>
+  </div>
+  
+  <!-- Simulation area -->
+  <div class="simulation">
+    <!-- Central subject -->
+    <div id="subject" class="subject">Subject</div>
+    <!-- Observer nodes -->
+    <div id="observer-0" class="observer">Observer 0</div>
+    <div id="observer-1" class="observer">Observer 1</div>
+    <div id="observer-2" class="observer">Observer 2</div>
+    <div id="observer-3" class="observer">Observer 3</div>
+    <div id="observer-4" class="observer">Observer 4</div>
+  </div>
+  
+  <!-- Control Buttons -->
+  <button id="changeState">Change State</button>
+  <button id="stopSimulation">Stop Simulation</button>
+  
+  <!-- Log area -->
+  <div id="log"></div>
+  
+  <!-- Legend / Key -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Subject:</strong> The central node that notifies observers when its state changes.</p>
+    <p><strong>Observer:</strong> Nodes that receive the update from the subject.</p>
+    <p><strong>Notified:</strong> Observers that are updated (they change appearance).</p>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+/* Container styling with a DOS retro look */
+#state-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Simulation area styling */
+.simulation {
+  border: 2px dashed #0f0;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+/* State box styling */
+.state-box {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #0f0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: background 0.5s, border-color 0.5s;
+}
+
+/* Button styling */
+button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+
+/* Log area styling */
+#log {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Legend / Key styling */
+#key {
+  margin-top: 20px;
+  text-align: left;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+}

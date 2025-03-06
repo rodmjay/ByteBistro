@@ -1,0 +1,64 @@
+<div class="container">
+  <!-- Left Sidebar with design pattern list -->
+  <aside class="sidebar">
+    <ul>
+      <li 
+        [class.active]="selectedPattern === 'scheduler'"
+        (click)="selectPattern('scheduler')">
+        Scheduler Queue
+      </li>
+      <li 
+        [class.active]="selectedPattern === 'simulation'"
+        (click)="selectPattern('simulation')">
+        Sender & Handlers
+      </li>
+      <li 
+        [class.active]="selectedPattern === 'observer'"
+        (click)="selectPattern('observer')">
+        Observer Pattern
+      </li>
+      <li 
+        [class.active]="selectedPattern === 'state'"
+        (click)="selectPattern('state')">
+        State Pattern
+      </li>
+      <li 
+        [class.active]="selectedPattern === 'strategy'"
+        (click)="selectPattern('strategy')">
+        Strategy Pattern
+      </li>
+      <!-- Add additional design patterns here -->
+    </ul>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="content">
+    <!-- Scheduler Queue Visualization -->
+    <div *ngIf="selectedPattern === 'scheduler'" id="scheduler">
+      <h1>Scheduler Queue Visualization</h1>
+      <p>Round-robin scheduler processing time slices.</p>
+      <svg id="svgCanvas" width="800" height="400"></svg>
+    </div>
+    
+    <!-- Sender & Handlers Simulation -->
+    <div *ngIf="selectedPattern === 'simulation'">
+      <app-simulation></app-simulation>
+    </div>
+    
+    <!-- Observer Pattern Simulation -->
+    <div *ngIf="selectedPattern === 'observer'">
+      <app-observer-simulation></app-observer-simulation>
+    </div>
+    
+    <!-- State Pattern Simulation -->
+    <div *ngIf="selectedPattern === 'state'">
+      <app-state-simulation></app-state-simulation>
+    </div>
+    
+    <!-- Strategy Pattern Simulation -->
+    <div *ngIf="selectedPattern === 'strategy'">
+      <app-strategy-simulation></app-strategy-simulation>
+    </div>
+    <!-- You can add other design pattern views here -->
+  </main>
+</div>
