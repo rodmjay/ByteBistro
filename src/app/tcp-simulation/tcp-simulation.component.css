@@ -1,0 +1,106 @@
+/* Container styling with DOS retro theme */
+#tcp-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Dropdown styling */
+.example-selector {
+  margin-bottom: 20px;
+}
+
+/* Simulation area styling */
+.simulation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px dashed #0f0;
+  margin: 20px auto;
+  width: 700px;
+  height: 300px;
+  position: relative;
+}
+
+/* Endpoint (Client/Server) styling */
+.endpoint {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.endpoint-label {
+  position: absolute;
+  top: -30px;
+  font-size: 18px;
+}
+
+/* Client specific styling */
+.client {
+  margin-left: 20px;
+}
+
+/* Server specific styling */
+.server {
+  margin-right: 20px;
+}
+
+/* Channel styling: center area for packet animation */
+.channel {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+/* Packet styling */
+.packet {
+  position: absolute;
+  top: 50%; /* vertically centered in channel */
+  transform: translateY(-50%);
+  width: 80px;
+  height: 40px;
+  background: #000;
+  border: 2px solid #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 1s ease-in-out;
+}
+
+/* Log area styling */
+#log {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Button styling */
+button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+
+/* Legend / Key styling */
+#key {
+  margin-top: 20px;
+  text-align: left;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+}

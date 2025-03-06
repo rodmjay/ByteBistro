@@ -8,6 +8,7 @@ import { StateSimulationComponent } from './state-simulation/state-simulation.co
 import { StrategySimulationComponent } from './strategy-simulation/strategy-simulation.component';
 import { DecoratorSimulationComponent } from './decorator-simulation/decorator-simulation.component';
 import { CommandSimulationComponent } from './command-simulation/command-simulation.component';
+import { TcpSimulationComponent } from './tcp-simulation/tcp-simulation.component';
 
 interface Process {
   id: number;
@@ -21,7 +22,7 @@ interface Process {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent, CommandSimulationComponent],
+  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent, CommandSimulationComponent, TcpSimulationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

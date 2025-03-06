@@ -37,6 +37,11 @@
         (click)="selectPattern('command')">
         Command Pattern
       </li>
+      <li 
+        [class.active]="selectedPattern === 'tcp'"
+        (click)="selectPattern('tcp')">
+        TCP Stack Simulation
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -78,6 +83,11 @@
     <!-- Command Pattern Simulation -->
     <div *ngIf="selectedPattern === 'command'">
       <app-command-simulation></app-command-simulation>
+    </div>
+    
+    <!-- TCP Stack Simulation -->
+    <div *ngIf="selectedPattern === 'tcp'">
+      <app-tcp-simulation></app-tcp-simulation>
     </div>
     <!-- You can add other design pattern views here -->
   </main>

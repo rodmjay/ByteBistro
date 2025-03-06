@@ -1,0 +1,45 @@
+<div id="tcp-container">
+  <h1>TCP Stack Simulation</h1>
+  
+  <!-- Control: Choose Simulation Mode (optional if you want to extend later) -->
+  <div class="example-selector">
+    <label for="tcpMode">Simulation:</label>
+    <select id="tcpMode">
+      <option value="handshake" selected>Three-Way Handshake</option>
+      <!-- Future options: Data Transfer, Connection Termination -->
+    </select>
+  </div>
+  
+  <!-- Simulation area: Two endpoints (Client and Server) and a channel -->
+  <div class="simulation">
+    <!-- Left column: Client -->
+    <div class="endpoint client">
+      <div class="endpoint-label">Client</div>
+    </div>
+    
+    <!-- Center channel for packets -->
+    <div class="channel" id="channel">
+      <!-- Packets will be injected here -->
+    </div>
+    
+    <!-- Right column: Server -->
+    <div class="endpoint server">
+      <div class="endpoint-label">Server</div>
+    </div>
+  </div>
+  
+  <!-- Control Buttons -->
+  <button id="startTCP">Start TCP Simulation</button>
+  <button id="resetTCP">Reset Simulation</button>
+  
+  <!-- Log area for textual description -->
+  <div id="log"></div>
+  
+  <!-- Legend / Key -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>SYN:</strong> Client's request to establish connection.</p>
+    <p><strong>SYN‑ACK:</strong> Server's acknowledgement and request to synchronize.</p>
+    <p><strong>ACK:</strong> Client's final acknowledgment to complete the handshake.</p>
+  </div>
+</div>
