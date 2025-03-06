@@ -6,6 +6,7 @@ import { SimulationComponent } from './simulation/simulation.component';
 import { ObserverSimulationComponent } from './observer-simulation/observer-simulation.component';
 import { StateSimulationComponent } from './state-simulation/state-simulation.component';
 import { StrategySimulationComponent } from './strategy-simulation/strategy-simulation.component';
+import { DecoratorSimulationComponent } from './decorator-simulation/decorator-simulation.component';
 
 interface Process {
   id: number;
@@ -19,7 +20,7 @@ interface Process {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent],
+  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

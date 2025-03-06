@@ -27,6 +27,11 @@
         (click)="selectPattern('strategy')">
         Strategy Pattern
       </li>
+      <li 
+        [class.active]="selectedPattern === 'decorator'"
+        (click)="selectPattern('decorator')">
+        Decorator Pattern
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -58,6 +63,11 @@
     <!-- Strategy Pattern Simulation -->
     <div *ngIf="selectedPattern === 'strategy'">
       <app-strategy-simulation></app-strategy-simulation>
+    </div>
+    
+    <!-- Decorator Pattern Simulation -->
+    <div *ngIf="selectedPattern === 'decorator'">
+      <app-decorator-simulation></app-decorator-simulation>
     </div>
     <!-- You can add other design pattern views here -->
   </main>
