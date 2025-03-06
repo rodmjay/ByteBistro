@@ -32,6 +32,11 @@
         (click)="selectPattern('decorator')">
         Decorator Pattern
       </li>
+      <li 
+        [class.active]="selectedPattern === 'command'"
+        (click)="selectPattern('command')">
+        Command Pattern
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -68,6 +73,11 @@
     <!-- Decorator Pattern Simulation -->
     <div *ngIf="selectedPattern === 'decorator'">
       <app-decorator-simulation></app-decorator-simulation>
+    </div>
+    
+    <!-- Command Pattern Simulation -->
+    <div *ngIf="selectedPattern === 'command'">
+      <app-command-simulation></app-command-simulation>
     </div>
     <!-- You can add other design pattern views here -->
   </main>

@@ -1,0 +1,76 @@
+/* Overall container styling with DOS retro look */
+#command-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Command panel styling */
+.command-panel {
+  margin-bottom: 20px;
+}
+
+.command-panel button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Command Queue styling */
+.queue-container {
+  margin: 20px auto;
+  width: 300px;
+  border: 2px dashed #0f0;
+  padding: 10px;
+}
+
+#commandQueue {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#commandQueue li {
+  border-bottom: 1px solid #0f0;
+  padding: 5px;
+}
+
+/* Controls styling */
+.controls {
+  margin: 20px 0;
+}
+
+.controls button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Log area styling */
+#log {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Key/Legend styling */
+#key {
+  margin-top: 20px;
+  text-align: left;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+}
