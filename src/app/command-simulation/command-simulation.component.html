@@ -1,0 +1,37 @@
+<div id="command-container">
+  <h1>Design Pattern Simulation: Command Pattern</h1>
+  
+  <!-- Panel to add commands -->
+  <div class="command-panel">
+    <button id="addStart">Add Start Command</button>
+    <button id="addStop">Add Stop Command</button>
+    <button id="addReset">Add Reset Command</button>
+  </div>
+  
+  <!-- Command Queue Display -->
+  <div class="queue-container">
+    <h2>Command Queue</h2>
+    <ul id="commandQueue">
+      <!-- Command items will be appended here -->
+    </ul>
+  </div>
+  
+  <!-- Control Buttons -->
+  <div class="controls">
+    <button id="executeCommands">Execute Commands</button>
+    <button id="undoCommand">Undo Last Command</button>
+    <button id="clearQueue">Clear Queue</button>
+  </div>
+  
+  <!-- Log area for simulation output -->
+  <div id="log"></div>
+  
+  <!-- Key / Legend -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Command:</strong> Encapsulated action (e.g., Start, Stop, Reset).</p>
+    <p><strong>Queue:</strong> Holds commands until they are executed.</p>
+    <p><strong>Execute:</strong> Invokes the command's action in order.</p>
+    <p><strong>Undo:</strong> Removes the last command from the queue and optionally reverses its effect.</p>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="decorator-container">
+  <h1>Design Pattern Simulation: Decorator Pattern</h1>
+  
+  <!-- Dropdown for selecting a decorator -->
+  <div class="example-selector">
+    <label for="decoratorSelect">Select Decorator:</label>
+    <select id="decoratorSelect">
+      <option value="shadow" selected>Shadow</option>
+      <option value="rounded">Rounded</option>
+      <option value="colored">Colored Background</option>
+    </select>
+  </div>
+  
+  <!-- Simulation area: shows the core component and its decorators -->
+  <div class="simulation">
+    <div id="coreComponent" class="core-component">
+      Core Component
+    </div>
+  </div>
+  
+  <!-- Control Buttons -->
+  <button id="applyDecorator">Apply Decorator</button>
+  <button id="resetDecorator">Reset Decorator</button>
+  
+  <!-- Log area for textual description -->
+  <div id="log"></div>
+  
+  <!-- Key / Legend -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Core Component:</strong> The base object that can be wrapped by decorators.</p>
+    <p><strong>Shadow:</strong> Applies a drop shadow effect.</p>
+    <p><strong>Rounded:</strong> Adds rounded corners to the component.</p>
+    <p><strong>Colored Background:</strong> Changes the background color.</p>
+  </div>
+</div>
