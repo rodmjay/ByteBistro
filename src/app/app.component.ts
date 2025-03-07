@@ -9,6 +9,7 @@ import { StrategySimulationComponent } from './strategy-simulation/strategy-simu
 import { DecoratorSimulationComponent } from './decorator-simulation/decorator-simulation.component';
 import { CommandSimulationComponent } from './command-simulation/command-simulation.component';
 import { CacheHierarchySimulationComponent } from './cache-hierarchy-simulation/cache-hierarchy-simulation.component';
+import { MemoryTlbSimulationComponent } from './memory-tlb-simulation/memory-tlb-simulation.component';
 
 interface Process {
   id: number;
@@ -22,7 +23,7 @@ interface Process {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent, CommandSimulationComponent, CacheHierarchySimulationComponent],
+  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent, CommandSimulationComponent, CacheHierarchySimulationComponent, MemoryTlbSimulationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

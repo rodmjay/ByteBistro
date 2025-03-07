@@ -1,0 +1,53 @@
+<div id="memory-tlb-container">
+  <h1>Virtual Memory & Cache Simulation</h1>
+  
+  <!-- Simulation Area -->
+  <div class="simulation">
+    <!-- TLB -->
+    <div class="memory-box" id="box-tlb">
+      <div class="box-label">TLB</div>
+      <div class="box-status" id="status-tlb">—</div>
+    </div>
+    
+    <!-- Page Table -->
+    <div class="memory-box" id="box-page-table">
+      <div class="box-label">Page Table</div>
+      <div class="box-status" id="status-page-table">—</div>
+    </div>
+    
+    <!-- Cache(s) -->
+    <div class="memory-box" id="box-cache">
+      <div class="box-label">Cache</div>
+      <div class="box-status" id="status-cache">—</div>
+    </div>
+    
+    <!-- Main Memory -->
+    <div class="memory-box" id="box-main-memory">
+      <div class="box-label">Main Memory</div>
+      <div class="box-status" id="status-main-memory">—</div>
+    </div>
+    
+    <!-- (Optional) Disk -->
+    <div class="memory-box" id="box-disk">
+      <div class="box-label">Disk</div>
+      <div class="box-status" id="status-disk">—</div>
+    </div>
+  </div>
+  
+  <!-- Control Buttons -->
+  <button id="simulateMemoryRequest">Simulate Memory Request</button>
+  <button id="resetSimulation">Reset Simulation</button>
+  
+  <!-- Log area -->
+  <div id="log"></div>
+  
+  <!-- Legend / Key -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>TLB:</strong> Checks if the virtual address is already translated. If hit, skip page table.</p>
+    <p><strong>Page Table:</strong> Translates virtual address to real address on TLB miss.</p>
+    <p><strong>Cache:</strong> Fast memory close to CPU. If miss, go to main memory.</p>
+    <p><strong>Main Memory:</strong> Larger, slower memory. If you want, you can add a "miss" step to go to disk.</p>
+    <p><strong>Disk:</strong> Final fallback for data. Always "hits" eventually if reached.</p>
+  </div>
+</div>
