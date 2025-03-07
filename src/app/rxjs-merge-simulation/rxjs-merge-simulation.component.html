@@ -1,0 +1,39 @@
+<div id="merge-container">
+  <h1>RxJS Merge Simulation</h1>
+
+  <!-- Control Buttons -->
+  <button id="startSimulation">Start Simulation</button>
+  <button id="stopSimulation">Stop Simulation</button>
+
+  <!-- Marble Diagram Area -->
+  <div class="diagram">
+    <!-- Input Stream A -->
+    <div class="stream-row">
+      <div class="stream-label">Stream A</div>
+      <div class="stream-line" id="streamA"></div>
+    </div>
+    
+    <!-- Input Stream B -->
+    <div class="stream-row">
+      <div class="stream-label">Stream B</div>
+      <div class="stream-line" id="streamB"></div>
+    </div>
+
+    <!-- Merged Output -->
+    <div class="stream-row">
+      <div class="stream-label">Merged</div>
+      <div class="stream-line" id="streamMerged"></div>
+    </div>
+  </div>
+
+  <!-- Log area for textual output -->
+  <div id="log"></div>
+
+  <!-- Legend / Key -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Marbles:</strong> Each marble is a data emission traveling from left (time start) to right (time future).</p>
+    <p><strong>Stream A & B:</strong> Two input streams, each emitting data at intervals.</p>
+    <p><strong>Merged:</strong> Combined output from both streams using RxJS <code>merge</code>.</p>
+  </div>
+</div>

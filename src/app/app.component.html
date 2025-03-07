@@ -47,6 +47,11 @@
         (click)="selectPattern('memory-tlb')">
         Virtual Memory & TLB Simulation
       </li>
+      <li 
+        [class.active]="selectedPattern === 'rxjs-merge'"
+        (click)="selectPattern('rxjs-merge')">
+        RxJS Merge Simulation
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -98,6 +103,11 @@
     <!-- Memory & TLB Simulation -->
     <div *ngIf="selectedPattern === 'memory-tlb'">
       <app-memory-tlb-simulation></app-memory-tlb-simulation>
+    </div>
+    
+    <!-- RxJS Merge Simulation -->
+    <div *ngIf="selectedPattern === 'rxjs-merge'">
+      <app-rxjs-merge-simulation></app-rxjs-merge-simulation>
     </div>
     <!-- You can add other design pattern views here -->
   </main>

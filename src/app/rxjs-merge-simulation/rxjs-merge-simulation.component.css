@@ -1,0 +1,100 @@
+/* Overall container with DOS retro styling */
+#merge-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Button styling */
+button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Diagram area */
+.diagram {
+  border: 2px dashed #0f0;
+  padding: 20px;
+  margin: 20px auto;
+  width: 800px;
+  max-width: 90%;
+}
+
+/* Each stream row: label + line */
+.stream-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Label on the left side */
+.stream-label {
+  width: 80px;
+  text-align: right;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+/* Horizontal line for marbles to travel along */
+.stream-line {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  background: #0f0;
+  overflow: hidden; /* so marbles that go out of bounds are hidden */
+}
+
+/* Marble styling */
+.marble {
+  position: absolute;
+  top: -8px; /* half above the line to appear centered on line */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  transition: left 2s linear; /* speed for animation */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #000;
+}
+
+/* Distinguish marbles from Stream A vs. Stream B */
+.marbleA {
+  background: #ff0; /* yellow marbles for A */
+}
+.marbleB {
+  background: #f00; /* red marbles for B */
+}
+.marbleMerged {
+  background: #0ff; /* cyan for merged */
+}
+
+/* Log area styling */
+#log {
+  margin-top: 20px;
+  background: #111;
+  border: 1px solid #0f0;
+  padding: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Key / Legend styling */
+#key {
+  margin-top: 20px;
+  background: #111;
+  border: 1px solid #0f0;
+  padding: 10px;
+  text-align: left;
+}

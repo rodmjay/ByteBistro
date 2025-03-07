@@ -10,6 +10,7 @@ import { DecoratorSimulationComponent } from './decorator-simulation/decorator-s
 import { CommandSimulationComponent } from './command-simulation/command-simulation.component';
 import { CacheHierarchySimulationComponent } from './cache-hierarchy-simulation/cache-hierarchy-simulation.component';
 import { MemoryTlbSimulationComponent } from './memory-tlb-simulation/memory-tlb-simulation.component';
+import { RxjsMergeSimulationComponent } from './rxjs-merge-simulation/rxjs-merge-simulation.component';
 
 interface Process {
   id: number;
@@ -23,7 +24,7 @@ interface Process {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent, CommandSimulationComponent, CacheHierarchySimulationComponent, MemoryTlbSimulationComponent],
+  imports: [RouterOutlet, ButtonModule, NgIf, SimulationComponent, ObserverSimulationComponent, StateSimulationComponent, StrategySimulationComponent, DecoratorSimulationComponent, CommandSimulationComponent, CacheHierarchySimulationComponent, MemoryTlbSimulationComponent, RxjsMergeSimulationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
