@@ -42,6 +42,11 @@
         (click)="selectPattern('cache')">
         Cache Hierarchy Simulation
       </li>
+      <li 
+        [class.active]="selectedPattern === 'memory-tlb'"
+        (click)="selectPattern('memory-tlb')">
+        Virtual Memory & TLB Simulation
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -88,6 +93,11 @@
     <!-- Cache Hierarchy Simulation -->
     <div *ngIf="selectedPattern === 'cache'">
       <app-cache-hierarchy-simulation></app-cache-hierarchy-simulation>
+    </div>
+    
+    <!-- Memory & TLB Simulation -->
+    <div *ngIf="selectedPattern === 'memory-tlb'">
+      <app-memory-tlb-simulation></app-memory-tlb-simulation>
     </div>
     <!-- You can add other design pattern views here -->
   </main>
