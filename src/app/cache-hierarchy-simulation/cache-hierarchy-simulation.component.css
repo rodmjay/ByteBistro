@@ -1,0 +1,73 @@
+/* Overall container styling with DOS retro look */
+#cache-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Simulation area styling */
+.simulation {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  border: 2px dashed #0f0;
+  padding: 20px;
+}
+
+/* Memory level box styling */
+.memory-level {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #0f0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.level-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.level-status {
+  font-size: 14px;
+}
+
+/* Button styling */
+button {
+  background: #000;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 10px 20px;
+  margin: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+
+/* Log area styling */
+#log {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Legend / Key styling */
+#key {
+  margin-top: 20px;
+  text-align: left;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #0f0;
+}

@@ -37,6 +37,11 @@
         (click)="selectPattern('command')">
         Command Pattern
       </li>
+      <li 
+        [class.active]="selectedPattern === 'cache'"
+        (click)="selectPattern('cache')">
+        Cache Hierarchy Simulation
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -78,6 +83,11 @@
     <!-- Command Pattern Simulation -->
     <div *ngIf="selectedPattern === 'command'">
       <app-command-simulation></app-command-simulation>
+    </div>
+    
+    <!-- Cache Hierarchy Simulation -->
+    <div *ngIf="selectedPattern === 'cache'">
+      <app-cache-hierarchy-simulation></app-cache-hierarchy-simulation>
     </div>
     <!-- You can add other design pattern views here -->
   </main>

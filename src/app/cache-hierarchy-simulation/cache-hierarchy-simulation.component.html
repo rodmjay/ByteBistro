@@ -1,0 +1,44 @@
+<div id="cache-container">
+  <h1>Cache Hierarchy Simulation</h1>
+  
+  <!-- Simulation Area: Displays memory levels -->
+  <div class="simulation">
+    <div class="memory-level" id="level-registers">
+      <div class="level-label">Registers</div>
+      <div class="level-status" id="status-registers">—</div>
+    </div>
+    <div class="memory-level" id="level-l1">
+      <div class="level-label">L1 Cache</div>
+      <div class="level-status" id="status-l1">—</div>
+    </div>
+    <div class="memory-level" id="level-l2">
+      <div class="level-label">L2 Cache</div>
+      <div class="level-status" id="status-l2">—</div>
+    </div>
+    <div class="memory-level" id="level-l3">
+      <div class="level-label">L3 Cache</div>
+      <div class="level-status" id="status-l3">—</div>
+    </div>
+    <div class="memory-level" id="level-disk">
+      <div class="level-label">Disk</div>
+      <div class="level-status" id="status-disk">—</div>
+    </div>
+  </div>
+  
+  <!-- Control Buttons -->
+  <button id="simulateRequest">Simulate Memory Request</button>
+  <button id="resetSimulation">Reset Simulation</button>
+  
+  <!-- Log Area -->
+  <div id="log"></div>
+  
+  <!-- Legend / Key -->
+  <div id="key">
+    <h2>Key</h2>
+    <p><strong>Registers:</strong> Fastest, smallest storage within the CPU.</p>
+    <p><strong>L1 Cache:</strong> Very fast, small cache.</p>
+    <p><strong>L2 Cache:</strong> Larger and a bit slower.</p>
+    <p><strong>L3 Cache:</strong> Even larger, shared cache.</p>
+    <p><strong>Disk:</strong> Persistent storage; always hits if reached.</p>
+  </div>
+</div>
