@@ -108,7 +108,7 @@ export class ObserverSimulationComponent implements AfterViewInit {
         });
         
         await delay(1500);
-        subjectEl.style.borderColor = "#0f0";
+        subjectEl.style.borderColor = "var(--accent-color)";
         logMessage("Subject reset.");
         observers.forEach(observer => observer.classList.remove("notified"));
         logMessage("Observers reset.");

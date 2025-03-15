@@ -21,7 +21,7 @@ interface Process {
   `,
   styles: [`
     h1, p {
-      color: #0f0;
+      color: var(--text-color);
     }
   `]
 })
@@ -60,7 +60,7 @@ export class SchedulerComponent implements AfterViewInit {
         const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         rect.setAttribute("width", processWidth.toString());
         rect.setAttribute("height", processHeight.toString());
-        rect.setAttribute("stroke", "#00ff00");
+        rect.setAttribute("stroke", getComputedStyle(document.documentElement).getPropertyValue('--text-color'));
         rect.setAttribute("fill", "none");
         rect.setAttribute("stroke-width", "2");
         group.appendChild(rect);
@@ -69,7 +69,7 @@ export class SchedulerComponent implements AfterViewInit {
         const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
         text.setAttribute("x", (processWidth / 2).toString());
         text.setAttribute("y", (processHeight / 2).toString());
-        text.setAttribute("fill", "#00ff00");
+        text.setAttribute("fill", getComputedStyle(document.documentElement).getPropertyValue('--text-color'));
         text.setAttribute("font-size", "16");
         text.setAttribute("text-anchor", "middle");
         text.setAttribute("dominant-baseline", "middle");
@@ -82,7 +82,7 @@ export class SchedulerComponent implements AfterViewInit {
         progressBar.setAttribute("y", (processHeight - 10).toString());
         progressBar.setAttribute("width", "0");
         progressBar.setAttribute("height", "5");
-        progressBar.setAttribute("fill", "#00ff00");
+        progressBar.setAttribute("fill", getComputedStyle(document.documentElement).getPropertyValue('--text-color'));
         group.appendChild(progressBar);
         
         // Set initial position in the queue
@@ -114,7 +114,7 @@ export class SchedulerComponent implements AfterViewInit {
         msgCircle.setAttribute("cx", offsetX.toString());
         msgCircle.setAttribute("cy", "-10");
         msgCircle.setAttribute("r", "5");
-        msgCircle.setAttribute("fill", "#00ff00");
+        msgCircle.setAttribute("fill", getComputedStyle(document.documentElement).getPropertyValue('--text-color'));
         proc.group.appendChild(msgCircle);
         proc.mailboxElements.push(msgCircle);
       });

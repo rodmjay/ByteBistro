@@ -29,7 +29,7 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     h1, h2, p {
-      color: #0f0;
+      color: var(--text-color);
     }
     
     .language-list {
@@ -40,14 +40,14 @@ import { CommonModule } from '@angular/common';
     }
     
     .language-card {
-      border: 1px solid #0f0;
+      border: 1px solid var(--text-color);
       padding: 15px;
       background-color: #111;
     }
     
     .language-card h2 {
       margin-top: 0;
-      border-bottom: 1px solid #0f0;
+      border-bottom: 1px solid var(--text-color);
       padding-bottom: 10px;
     }
   `]

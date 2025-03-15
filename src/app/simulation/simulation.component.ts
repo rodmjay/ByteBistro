@@ -118,7 +118,7 @@ export class SimulationComponent implements AfterViewInit {
       await delay(1000);
       logMessage("Resetting simulation.");
       messageEl.classList.add("hidden");
-      messageEl.style.borderColor = "#0f0"; // Reset border color.
+      messageEl.style.borderColor = "var(--text-color)"; // Reset border color.
     }
     
     // Continuous simulation loop.
