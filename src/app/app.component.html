@@ -37,6 +37,11 @@
         (click)="selectPattern('command')">
         Command Pattern
       </li>
+      <li 
+        [class.active]="selectedPattern === 'mermaid-patterns'"
+        (click)="selectPattern('mermaid-patterns')">
+        Design Patterns (Mermaid)
+      </li>
       <!-- Add additional design patterns here -->
     </ul>
   </aside>
@@ -78,6 +83,15 @@
     <!-- Command Pattern Simulation -->
     <div *ngIf="selectedPattern === 'command'">
       <app-command-simulation></app-command-simulation>
+    </div>
+    
+    <!-- Mermaid Design Patterns Visualization -->
+    <div *ngIf="selectedPattern === 'mermaid-patterns'">
+      <h1>{{ title }}</h1>
+      <div *ngFor="let pattern of designPatterns">
+        <h2>{{ pattern.name }}</h2>
+        <app-design-pattern [diagramCode]="pattern.diagramCode"></app-design-pattern>
+      </div>
     </div>
     <!-- You can add other design pattern views here -->
   </main>
