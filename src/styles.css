@@ -1,1 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --text-color: #00ff00;
+  --bg-color: #000000;
+  --accent-color: #003300;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Courier New', monospace;
+}
+
+/* DOS-style theme (default) */
+h1, h2, h3, h4, h5, h6, p {
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+input, select {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 5px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--text-color);
+  box-shadow: 0 0 5px var(--text-color);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Theme Classes */
+.theme-dos {
+  --text-color: #00ff00;
+  --bg-color: #000000;
+  --accent-color: #003300;
+}
+
+.theme-matrix {
+  --text-color: #00ff41;
+  --bg-color: #000000;
+  --accent-color: #008f11;
+}
+
+.theme-amber {
+  --text-color: #ffb000;
+  --bg-color: #000000;
+  --accent-color: #ff9000;
+}
+
+.theme-blue {
+  --text-color: #00b7ff;
+  --bg-color: #000000;
+  --accent-color: #0077ff;
+}

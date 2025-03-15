@@ -151,7 +151,25 @@ Bridge,Abstraction -> Implementation,Abstraction linked to implementation
 Composite,Tree structure with components,Tree structure with parent-child relationships
 Decorator,Core object -> Multiple decorators,Arrows showing layering of decorators
 Facade,Facade -> Multiple subsystems,Facade connects to multiple subsystems
-Flyweight,Shared object pool,Objects reused from a shared pool
+Flyweight,classDiagram
+    class Flyweight {
+        +operation(extrinsicData: Object)
+    }
+
+    class ConcreteFlyweight {
+        - intrinsicState: Object
+        + operation(extrinsicData: Object)
+    }
+
+    class FlyweightFactory {
+        + get(key: Object): Flyweight
+    }
+
+    class Client
+
+    Flyweight <|-- ConcreteFlyweight
+    FlyweightFactory --> Flyweight : "Creates and manages"
+    Client --> FlyweightFactory : "Requests Flyweight",Objects reused from a shared pool
 Proxy,Proxy -> Real subject,Proxy object forwards requests
 Chain of Responsibility,Handlers in a sequence,Arrows showing request passing through handlers
 Command,Invoker -> Command -> Receiver,Command object connects invoker and receiver

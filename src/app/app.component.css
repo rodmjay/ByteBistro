@@ -1,10 +1,54 @@
 /* Layout styles */
 .container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   background-color: #000; /* DOS-style black background */
   color: #0f0; /* Bright green text */
   font-family: 'Courier New', Courier, monospace;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  border-bottom: 1px solid #0f0;
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0f0;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-links li:hover, .nav-links li.active {
+  background-color: #030;
+  text-decoration: underline;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 /* Sidebar styling */

@@ -1,103 +1,52 @@
 <div class="container">
-  <!-- Left Sidebar with design pattern list -->
-  <aside class="sidebar">
-    <ul>
-      <li 
-        [class.active]="selectedPattern === 'scheduler'"
-        (click)="selectPattern('scheduler')">
-        Scheduler Queue
-      </li>
-      <li 
-        [class.active]="selectedPattern === 'simulation'"
-        (click)="selectPattern('simulation')">
-        Sender & Handlers
-      </li>
-      
-      <!-- Design Patterns Section Header -->
-      <li class="section-header">Design Patterns</li>
-      
-      <!-- Dynamically generate pattern list items -->
-      <li *ngFor="let pattern of designPatterns"
-        [class.active]="selectedPattern === pattern.name.toLowerCase().replace(' ', '-')"
-        (click)="selectPattern(pattern.name.toLowerCase().replace(' ', '-'))">
-        {{ pattern.name }}
-      </li>
-      
-      <!-- View All Patterns -->
-      <li 
-        [class.active]="selectedPattern === 'patterns-list'"
-        (click)="selectPattern('patterns-list')">
-        View All Patterns
-      </li>
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="logo">Byte Bistro</div>
+    <ul class="nav-links">
+      <li [routerLinkActive]="'active'" [routerLink]="['/patterns']">Design Patterns</li>
+      <li [routerLinkActive]="'active'" [routerLink]="['/languages']">Programming Languages</li>
     </ul>
-  </aside>
+    <app-theme-switcher></app-theme-switcher>
+  </nav>
 
-  <!-- Main Content Area -->
-  <main class="content">
-    <!-- Scheduler Queue Visualization -->
-    <div *ngIf="selectedPattern === 'scheduler'" id="scheduler">
-      <h1>Scheduler Queue Visualization</h1>
-      <p>Round-robin scheduler processing time slices.</p>
-      <svg id="svgCanvas" width="800" height="400"></svg>
-    </div>
-    
-    <!-- Sender & Handlers Simulation -->
-    <div *ngIf="selectedPattern === 'simulation'">
-      <app-simulation></app-simulation>
-    </div>
-    
-    <!-- Observer Pattern Simulation -->
-    <div *ngIf="selectedPattern === 'observer'">
-      <app-observer-simulation></app-observer-simulation>
-    </div>
-    
-    <!-- State Pattern Simulation -->
-    <div *ngIf="selectedPattern === 'state'">
-      <app-state-simulation></app-state-simulation>
-    </div>
-    
-    <!-- Strategy Pattern Simulation -->
-    <div *ngIf="selectedPattern === 'strategy'">
-      <app-strategy-simulation></app-strategy-simulation>
-    </div>
-    
-    <!-- Decorator Pattern Simulation -->
-    <div *ngIf="selectedPattern === 'decorator'">
-      <app-decorator-simulation></app-decorator-simulation>
-    </div>
-    
-    <!-- Command Pattern Simulation -->
-    <div *ngIf="selectedPattern === 'command'">
-      <app-command-simulation></app-command-simulation>
-    </div>
-    
-    <!-- Generic Pattern View for patterns without specific components -->
-    <div *ngIf="selectedPattern !== 'scheduler' && 
-                selectedPattern !== 'simulation' && 
-                selectedPattern !== 'observer' && 
-                selectedPattern !== 'state' && 
-                selectedPattern !== 'strategy' && 
-                selectedPattern !== 'decorator' && 
-                selectedPattern !== 'command' && 
-                selectedPattern !== 'patterns-list' && 
-                selectedPattern !== ''">
-      <div class="pattern-detail">
-        <h1>{{ getSelectedPatternName() }}</h1>
-        <app-design-pattern 
-          [diagramCode]="getSelectedPatternDiagram()" 
-          [patternId]="getSelectedPatternId() || 0">
-        </app-design-pattern>
-        <p>This pattern demonstrates {{ getSelectedPatternDescription() }}</p>
-      </div>
-    </div>
-    
-    <!-- Software Design Patterns List -->
-    <div *ngIf="selectedPattern === 'patterns-list'">
-      <h1>{{ title }}</h1>
-      <div *ngFor="let pattern of designPatterns">
-        <h2>{{ pattern.name }}</h2>
-        <app-design-pattern [diagramCode]="pattern.diagramCode" [patternId]="pattern.id || 0"></app-design-pattern>
-      </div>
-    </div>
-  </main>
+  <div class="content-wrapper">
+    <!-- Left Sidebar with design pattern list -->
+    <aside class="sidebar">
+      <ul>
+        <!-- Design Patterns Section Header -->
+        <li class="section-header">Design Patterns</li>
+        
+        <!-- Scheduler and Simulation components -->
+        <li 
+          [routerLinkActive]="'active'"
+          [routerLink]="['/scheduler']">
+          Scheduler Queue
+        </li>
+        <li 
+          [routerLinkActive]="'active'"
+          [routerLink]="['/simulation']">
+          Sender & Handlers
+        </li>
+        
+        <!-- Dynamically generate pattern list items -->
+        <li *ngFor="let pattern of designPatterns"
+          [routerLinkActive]="'active'"
+          [routerLink]="['/pattern', pattern.id]">
+          {{ pattern.name }}
+        </li>
+        
+        <!-- View All Patterns -->
+        <li 
+          [routerLinkActive]="'active'"
+          [routerLink]="['/patterns']">
+          View All Patterns
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
