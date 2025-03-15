@@ -1,8 +1,8 @@
 /* Container styling with DOS retro look */
 #strategy-container {
-  background: #000;
-  color: #0f0;
-  font-family: 'Courier New', Courier, monospace;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family, 'Courier New', Courier, monospace);
   padding: 20px;
   text-align: center;
 }
@@ -14,7 +14,7 @@
 
 /* Simulation area styling */
 .simulation {
-  border: 2px dashed #0f0;
+  border: 2px dashed var(--accent-color);
   padding: 20px;
   margin: 20px auto;
   width: 300px;
@@ -26,7 +26,7 @@
 .context {
   width: 200px;
   height: 200px;
-  border: 2px solid #0f0;
+  border: 2px solid var(--accent-color);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -37,12 +37,12 @@
 
 /* Button styling */
 button {
-  background: #000;
-  color: #0f0;
-  border: 2px solid #0f0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--accent-color);
   padding: 10px 20px;
   margin-top: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-family, 'Courier New', Courier, monospace);
   cursor: pointer;
 }
 
@@ -51,9 +51,9 @@ button {
   margin-top: 20px;
   text-align: left;
   font-size: 14px;
-  background: #111;
+  background: var(--bg-color);
   padding: 10px;
-  border: 1px solid #0f0;
+  border: 1px solid var(--accent-color);
   max-height: 150px;
   overflow-y: auto;
 }
@@ -62,20 +62,20 @@ button {
 #key {
   margin-top: 20px;
   text-align: left;
-  background: #111;
+  background: var(--bg-color);
   padding: 10px;
-  border: 1px solid #0f0;
+  border: 1px solid var(--accent-color);
 }
 
 /* Mermaid diagram container styling */
 .diagram-container {
   margin-top: 30px;
   padding: 10px;
-  border: 1px solid #0f0;
-  background-color: #111;
+  border: 1px solid var(--accent-color);
+  background-color: var(--bg-color);
 }
 
 .diagram-container h2 {
-  color: #0f0;
+  color: var(--text-color);
   margin-bottom: 15px;
 }
