@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface DesignPattern {
+  id?: number;
   name: string;
   diagramCode: string;
 }
@@ -23,7 +24,7 @@ export class DesignPatternService {
     // Skip header row and split into lines
     const lines = csvData.split('\n').slice(1);
     
-    lines.forEach(line => {
+    lines.forEach((line, index) => {
       if (!line.trim()) return; // Skip empty lines
       
       // Split by comma, but handle commas inside quotes
@@ -37,7 +38,11 @@ export class DesignPatternService {
         // Create Mermaid diagram code
         const diagramCode = this.generateMermaidCode(name, elements, connections);
         
-        patterns.push({ name, diagramCode });
+        patterns.push({ 
+          id: index + 1, // Add ID starting from 1
+          name, 
+          diagramCode 
+        });
       }
     });
     

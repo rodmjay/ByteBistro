@@ -1,4 +1,5 @@
 import { Component, Input, AfterViewInit, ElementRef, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import mermaid from 'mermaid';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="mermaid-container">
+    <div class="mermaid-container" (click)="navigateToDetails()">
       <div [id]="'mermaid-' + uniqueId" class="mermaid-diagram"></div>
     </div>
   `,
@@ -18,6 +19,11 @@ import { CommonModule } from '@angular/common';
       background-color: #111; 
       padding: 10px;
       border: 1px solid #0f0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .mermaid-container:hover {
+      background-color: #222;
     }
     .mermaid-diagram { 
       font-size: 14px; 
@@ -49,9 +55,10 @@ import { CommonModule } from '@angular/common';
 })
 export class DesignPatternComponent implements AfterViewInit, OnChanges {
   @Input() diagramCode!: string;
+  @Input() patternId!: number;
   uniqueId = Math.random().toString(36).substring(2, 11);
   
-  constructor() {
+  constructor(private router: Router) {
     // Initialize mermaid with DOS-style theme
     mermaid.initialize({ 
       startOnLoad: false,
@@ -99,5 +106,9 @@ export class DesignPatternComponent implements AfterViewInit, OnChanges {
         element.innerHTML = `<pre style="color: #0f0;">${this.diagramCode}</pre>`;
       }
     }
+  }
+  
+  navigateToDetails() {
+    this.router.navigate(['/pattern', this.patternId]);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { NgIf, NgFor } from '@angular/common';
 import { SimulationComponent } from './simulation/simulation.component';
@@ -25,6 +25,7 @@ interface Process {
   standalone: true,
   imports: [
     RouterOutlet, 
+    RouterModule,
     ButtonModule, 
     NgIf, 
     NgFor,

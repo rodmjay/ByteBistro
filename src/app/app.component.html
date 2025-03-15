@@ -38,6 +38,7 @@
         Command Pattern
       </li>
       <li 
+        [routerLink]="['/']"
         [class.active]="selectedPattern === 'mermaid-patterns'"
         (click)="selectPattern('mermaid-patterns')">
         Design Patterns (Mermaid)
@@ -85,13 +86,9 @@
       <app-command-simulation></app-command-simulation>
     </div>
     
-    <!-- Mermaid Design Patterns Visualization -->
+    <!-- Router Outlet for Home and Detail Pages -->
     <div *ngIf="selectedPattern === 'mermaid-patterns'">
-      <h1>{{ title }}</h1>
-      <div *ngFor="let pattern of designPatterns">
-        <h2>{{ pattern.name }}</h2>
-        <app-design-pattern [diagramCode]="pattern.diagramCode"></app-design-pattern>
-      </div>
+      <router-outlet></router-outlet>
     </div>
     <!-- You can add other design pattern views here -->
   </main>
