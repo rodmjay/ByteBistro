@@ -1,14 +1,28 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
+import { DesignPatternService } from '../services/design-pattern.service';
 
 @Component({
   selector: 'app-observer-simulation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, DesignPatternComponent],
   templateUrl: './observer-simulation.component.html',
   styleUrl: './observer-simulation.component.css'
 })
 export class ObserverSimulationComponent implements AfterViewInit {
   simulationRunning = false;
+  diagramCode: string = '';
+  patternId: number = 0;
+  
+  constructor(private designPatternService: DesignPatternService, private router: Router) {
+    const pattern = this.designPatternService.getPatternByName('Observer');
+    if (pattern) {
+      this.diagramCode = pattern.diagramCode;
+      this.patternId = pattern.id || 0;
+    }
+  }
 
   ngAfterViewInit(): void {
     const exampleSelect = document.getElementById("exampleSelect") as HTMLSelectElement;

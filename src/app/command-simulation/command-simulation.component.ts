@@ -1,4 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
+import { DesignPatternService } from '../services/design-pattern.service';
 
 interface Command {
   name: string;
@@ -9,12 +13,22 @@ interface Command {
 @Component({
   selector: 'app-command-simulation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, DesignPatternComponent],
   templateUrl: './command-simulation.component.html',
   styleUrl: './command-simulation.component.css'
 })
 export class CommandSimulationComponent implements AfterViewInit {
   private commandQueue: Command[] = [];
+  diagramCode: string = '';
+  patternId: number = 0;
+  
+  constructor(private designPatternService: DesignPatternService, private router: Router) {
+    const pattern = this.designPatternService.getPatternByName('Command');
+    if (pattern) {
+      this.diagramCode = pattern.diagramCode;
+      this.patternId = pattern.id || 0;
+    }
+  }
 
   ngAfterViewInit(): void {
     const addStartButton = document.getElementById("addStart") as HTMLButtonElement;

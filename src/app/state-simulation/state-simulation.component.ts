@@ -1,13 +1,27 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
+import { DesignPatternService } from '../services/design-pattern.service';
 
 @Component({
   selector: 'app-state-simulation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, DesignPatternComponent],
   templateUrl: './state-simulation.component.html',
   styleUrl: './state-simulation.component.css'
 })
 export class StateSimulationComponent implements AfterViewInit {
+  diagramCode: string = '';
+  patternId: number = 0;
+  
+  constructor(private designPatternService: DesignPatternService, private router: Router) {
+    const pattern = this.designPatternService.getPatternByName('State');
+    if (pattern) {
+      this.diagramCode = pattern.diagramCode;
+      this.patternId = pattern.id || 0;
+    }
+  }
 
   ngAfterViewInit(): void {
     const stateBox = document.getElementById('stateBox') as HTMLElement;

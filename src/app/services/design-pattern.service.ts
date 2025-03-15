@@ -126,6 +126,16 @@ export class DesignPatternService {
   }
   
   /**
+   * Get a specific design pattern by name
+   * @param name The name of the pattern to retrieve
+   * @returns The design pattern object or undefined if not found
+   */
+  getPatternByName(name: string): DesignPattern | undefined {
+    return this.loadDesignPatterns().find(pattern => 
+      pattern.name.toLowerCase() === name.toLowerCase());
+  }
+  
+  /**
    * Get hardcoded CSV data for design patterns
    * In a real application, this would be replaced with an HTTP request
    */
