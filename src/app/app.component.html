@@ -12,33 +12,23 @@
         (click)="selectPattern('simulation')">
         Sender & Handlers
       </li>
-      <li 
-        [class.active]="selectedPattern === 'observer'"
-        (click)="selectPattern('observer')">
-        Observer Pattern
+      
+      <!-- Design Patterns Section Header -->
+      <li class="section-header">Design Patterns</li>
+      
+      <!-- Dynamically generate pattern list items -->
+      <li *ngFor="let pattern of designPatterns"
+        [class.active]="selectedPattern === pattern.name.toLowerCase().replace(' ', '-')"
+        (click)="selectPattern(pattern.name.toLowerCase().replace(' ', '-'))">
+        {{ pattern.name }}
       </li>
+      
+      <!-- View All Patterns -->
       <li 
-        [class.active]="selectedPattern === 'state'"
-        (click)="selectPattern('state')">
-        State Pattern
+        [class.active]="selectedPattern === 'patterns-list'"
+        (click)="selectPattern('patterns-list')">
+        View All Patterns
       </li>
-      <li 
-        [class.active]="selectedPattern === 'strategy'"
-        (click)="selectPattern('strategy')">
-        Strategy Pattern
-      </li>
-      <li 
-        [class.active]="selectedPattern === 'decorator'"
-        (click)="selectPattern('decorator')">
-        Decorator Pattern
-      </li>
-      <li 
-        [class.active]="selectedPattern === 'command'"
-        (click)="selectPattern('command')">
-        Command Pattern
-      </li>
-      <!-- Mermaid diagrams are now integrated into each pattern component -->
-      <!-- Add additional design patterns here -->
     </ul>
   </aside>
 
@@ -81,8 +71,33 @@
       <app-command-simulation></app-command-simulation>
     </div>
     
-    <!-- Router Outlet for Pattern Detail Pages -->
-    <router-outlet></router-outlet>
-    <!-- You can add other design pattern views here -->
+    <!-- Generic Pattern View for patterns without specific components -->
+    <div *ngIf="selectedPattern !== 'scheduler' && 
+                selectedPattern !== 'simulation' && 
+                selectedPattern !== 'observer' && 
+                selectedPattern !== 'state' && 
+                selectedPattern !== 'strategy' && 
+                selectedPattern !== 'decorator' && 
+                selectedPattern !== 'command' && 
+                selectedPattern !== 'patterns-list' && 
+                selectedPattern !== ''">
+      <div class="pattern-detail">
+        <h1>{{ getSelectedPatternName() }}</h1>
+        <app-design-pattern 
+          [diagramCode]="getSelectedPatternDiagram()" 
+          [patternId]="getSelectedPatternId() || 0">
+        </app-design-pattern>
+        <p>This pattern demonstrates {{ getSelectedPatternDescription() }}</p>
+      </div>
+    </div>
+    
+    <!-- Software Design Patterns List -->
+    <div *ngIf="selectedPattern === 'patterns-list'">
+      <h1>{{ title }}</h1>
+      <div *ngFor="let pattern of designPatterns">
+        <h2>{{ pattern.name }}</h2>
+        <app-design-pattern [diagramCode]="pattern.diagramCode" [patternId]="pattern.id || 0"></app-design-pattern>
+      </div>
+    </div>
   </main>
 </div>

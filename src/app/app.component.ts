@@ -1,13 +1,14 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { NgIf } from '@angular/common';
+import { NgIf, NgFor, CommonModule } from '@angular/common';
 import { SimulationComponent } from './simulation/simulation.component';
 import { ObserverSimulationComponent } from './observer-simulation/observer-simulation.component';
 import { StateSimulationComponent } from './state-simulation/state-simulation.component';
 import { StrategySimulationComponent } from './strategy-simulation/strategy-simulation.component';
 import { DecoratorSimulationComponent } from './decorator-simulation/decorator-simulation.component';
 import { CommandSimulationComponent } from './command-simulation/command-simulation.component';
+import { DesignPatternComponent } from './components/design-pattern/design-pattern.component';
 import { DesignPatternService, DesignPattern } from './services/design-pattern.service';
 
 interface Process {
@@ -26,13 +27,16 @@ interface Process {
     RouterOutlet, 
     RouterModule,
     ButtonModule, 
-    NgIf, 
+    NgIf,
+    NgFor,
+    CommonModule,
     SimulationComponent, 
     ObserverSimulationComponent, 
     StateSimulationComponent, 
     StrategySimulationComponent, 
     DecoratorSimulationComponent, 
-    CommandSimulationComponent
+    CommandSimulationComponent,
+    DesignPatternComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -66,7 +70,33 @@ export class AppComponent implements AfterViewInit {
     if (pattern === 'scheduler') {
       setTimeout(() => this.initScheduler(), 0);
     }
-    // No initialization needed for simulation and observer components as they handle their own initialization
+    // For pattern-specific views, we'll handle them in the template
+  }
+  
+  // Get the name of the currently selected pattern
+  getSelectedPatternName(): string {
+    const pattern = this.designPatterns.find(p => 
+      p.name.toLowerCase().replace(' ', '-') === this.selectedPattern);
+    return pattern ? pattern.name : '';
+  }
+  
+  // Get the diagram code for the currently selected pattern
+  getSelectedPatternDiagram(): string {
+    const pattern = this.designPatterns.find(p => 
+      p.name.toLowerCase().replace(' ', '-') === this.selectedPattern);
+    return pattern ? pattern.diagramCode : '';
+  }
+  
+  // Get the ID for the currently selected pattern
+  getSelectedPatternId(): number | undefined {
+    const pattern = this.designPatterns.find(p => 
+      p.name.toLowerCase().replace(' ', '-') === this.selectedPattern);
+    return pattern ? pattern.id : undefined;
+  }
+  
+  // Get a description for the currently selected pattern
+  getSelectedPatternDescription(): string {
+    return 'a software design pattern concept with the visualization shown above.';
   }
 
   // Scheduler visualization code

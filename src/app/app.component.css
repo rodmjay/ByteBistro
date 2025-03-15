@@ -31,6 +31,33 @@
   text-decoration: underline;
 }
 
+/* Section header styling */
+.sidebar li.section-header {
+  color: #0f0;
+  font-weight: bold;
+  border-bottom: 1px solid #0f0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: default;
+}
+
+/* Pattern detail styling */
+.pattern-detail {
+  padding: 20px;
+  color: #0f0;
+}
+
+.pattern-detail h1 {
+  color: #0f0;
+  margin-bottom: 20px;
+}
+
+.pattern-detail p {
+  color: #0f0;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
 /* Main content area */
 .content {
   flex-grow: 1;
