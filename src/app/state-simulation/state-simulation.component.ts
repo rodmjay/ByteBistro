@@ -68,8 +68,8 @@ export class StateSimulationComponent implements AfterViewInit {
     async function changeState(): Promise<void> {
       logMessage("Transition: Idle → Processing");
       stateBox.textContent = "Processing";
-      stateBox.style.backgroundColor = "#222"; // Dim background for processing.
-      stateBox.style.borderColor = "#ff0"; // Yellow border for emphasis.
+      stateBox.style.backgroundColor = "var(--button-bg)"; // Dim background for processing
+      stateBox.style.borderColor = "var(--button-border)"; // Yellow border for emphasis
       await delay(1000);
 
       // Randomly decide outcome: 60% success, 40% error.
@@ -77,7 +77,7 @@ export class StateSimulationComponent implements AfterViewInit {
       if (isSuccess) {
         logMessage("Transition: Processing → Success");
         stateBox.textContent = "Success";
-        stateBox.style.backgroundColor = "#0f0"; // Green indicates success.
+        stateBox.style.backgroundColor = "var(--text-color)"; // Green indicates success
       } else {
         logMessage("Transition: Processing → Error");
         stateBox.textContent = "Error";
@@ -88,7 +88,7 @@ export class StateSimulationComponent implements AfterViewInit {
       logMessage("Resetting to Idle");
       stateBox.textContent = "Idle";
       stateBox.style.backgroundColor = "transparent";
-      stateBox.style.borderColor = "#0f0"; // Reset border color.
+      stateBox.style.borderColor = "var(--border-color)"; // Reset border color
     }
 
     // Attach the change state event.

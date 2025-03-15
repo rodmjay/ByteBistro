@@ -86,7 +86,7 @@ export class ObserverSimulationComponent implements AfterViewInit {
     const simulationLoop = async () => {
       while (this.simulationRunning) {
         // Indicate subject state change.
-        subjectEl.style.borderColor = "#ff0";
+        subjectEl.style.borderColor = "var(--button-border)";
         logMessage("Subject changed state.");
         await delay(500);
         

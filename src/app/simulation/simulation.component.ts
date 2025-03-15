@@ -97,7 +97,7 @@ export class SimulationComponent implements AfterViewInit {
         
         // Randomly decide if the node processes the message.
         if (Math.random() < 0.5) {
-          messageEl.style.borderColor = "#ff0"; // Yellow indicates handled.
+          messageEl.style.borderColor = "var(--button-border)"; // Yellow indicates handled.
           if (simType === "chain") {
             (statusElements[i] as HTMLElement).textContent = "Handled";
             logMessage(`${nodes[i].textContent} handled the message.`);

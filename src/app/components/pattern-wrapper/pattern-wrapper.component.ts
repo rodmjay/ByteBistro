@@ -111,8 +111,8 @@ import { PatternExampleComponent } from '../pattern-example/pattern-example.comp
     }
     
     .tab-header.active {
-      background-color: #222;
-      border-bottom: 1px solid #222;
+      background-color: var(--button-bg);
+      border-bottom: 1px solid var(--button-bg);
       position: relative;
       top: 1px;
     }
