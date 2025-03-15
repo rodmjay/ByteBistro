@@ -3,13 +3,36 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
 import { DesignPatternService } from '../services/design-pattern.service';
+import { PatternWrapperComponent } from '../components/pattern-wrapper/pattern-wrapper.component';
 
 @Component({
   selector: 'app-state-simulation',
   standalone: true,
-  imports: [CommonModule, DesignPatternComponent],
-  templateUrl: './state-simulation.component.html',
-  styleUrl: './state-simulation.component.css'
+  imports: [CommonModule, DesignPatternComponent, PatternWrapperComponent],
+  template: `
+    <app-pattern-wrapper [patternId]="patternId">
+      <div class="state-simulation">
+        <h2>State Pattern Simulation</h2>
+        <div class="simulation-container">
+          <div class="controls">
+            <button id="changeState" class="btn">Change State</button>
+          </div>
+          
+          <div class="visualization">
+            <div id="stateBox" class="state-box">Idle</div>
+          </div>
+          
+          <div id="log" class="log"></div>
+          
+          <div class="diagram-container">
+            <h2>State Pattern Diagram</h2>
+            <app-design-pattern [diagramCode]="diagramCode" [patternId]="patternId"></app-design-pattern>
+          </div>
+        </div>
+      </div>
+    </app-pattern-wrapper>
+  `,
+  styleUrls: ['./state-simulation.component.css']
 })
 export class StateSimulationComponent implements AfterViewInit {
   diagramCode: string = '';

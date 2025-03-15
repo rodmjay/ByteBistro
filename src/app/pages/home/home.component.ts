@@ -16,11 +16,11 @@ import { DesignPatternService, DesignPattern } from '../../services/design-patte
   `,
   styles: [`
     h1 {
-      color: #0f0;
+      color: var(--text-color);
       margin-bottom: 20px;
     }
     h2 {
-      color: #0f0;
+      color: var(--text-color);
       margin-top: 30px;
       margin-bottom: 10px;
     }

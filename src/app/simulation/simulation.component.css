@@ -1,8 +1,8 @@
 /* Overall container styling with DOS retro look */
 #chain-container {
-  background: #000;
-  color: #0f0;
-  font-family: 'Courier New', Courier, monospace;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family, 'Courier New', monospace);
   padding: 20px;
   text-align: center;
 }
@@ -16,7 +16,7 @@
 .simulation {
   display: flex;
   justify-content: space-between;
-  border: 2px dashed #0f0;
+  border: 2px dashed var(--text-color);
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -30,7 +30,7 @@
 /* Each row (node/status) has a fixed height */
 .node, .status {
   height: 100px;
-  border: 2px solid #0f0;
+  border: 2px solid var(--text-color);
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@
   width: 80px;
   height: 40px;
   background: #000;
-  border: 2px solid #0f0;
+  border: 2px solid var(--text-color);
   position: absolute;
   left: 50%; /* Center horizontally in right column */
   transform: translateX(-50%);
@@ -64,9 +64,9 @@
 
 /* Button styling */
 button {
-  background: #000;
-  color: #0f0;
-  border: 2px solid #0f0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
   padding: 10px 20px;
   font-family: 'Courier New', Courier, monospace;
   cursor: pointer;
@@ -80,7 +80,7 @@ button {
   font-size: 14px;
   background: #111;
   padding: 10px;
-  border: 1px solid #0f0;
+  border: 1px solid var(--text-color);
   max-height: 200px;
   overflow-y: auto;
 }
@@ -91,5 +91,5 @@ button {
   text-align: left;
   background: #111;
   padding: 10px;
-  border: 1px solid #0f0;
+  border: 1px solid var(--text-color);
 }

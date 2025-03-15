@@ -3,13 +3,41 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
 import { DesignPatternService } from '../services/design-pattern.service';
+import { PatternWrapperComponent } from '../components/pattern-wrapper/pattern-wrapper.component';
 
 @Component({
   selector: 'app-strategy-simulation',
   standalone: true,
-  imports: [CommonModule, DesignPatternComponent],
-  templateUrl: './strategy-simulation.component.html',
-  styleUrl: './strategy-simulation.component.css'
+  imports: [CommonModule, DesignPatternComponent, PatternWrapperComponent],
+  template: `
+    <app-pattern-wrapper [patternId]="patternId">
+      <div class="strategy-simulation">
+        <h2>Strategy Pattern Simulation</h2>
+        <div class="simulation-container">
+          <div class="controls">
+            <select id="strategySelect">
+              <option value="aggressive">Aggressive Strategy</option>
+              <option value="defensive">Defensive Strategy</option>
+              <option value="balanced">Balanced Strategy</option>
+            </select>
+            <button id="executeStrategy" class="btn">Execute Strategy</button>
+          </div>
+          
+          <div class="visualization">
+            <div id="context" class="context-box">Idle</div>
+          </div>
+          
+          <div id="log" class="log"></div>
+          
+          <div class="diagram-container">
+            <h2>Strategy Pattern Diagram</h2>
+            <app-design-pattern [diagramCode]="diagramCode" [patternId]="patternId"></app-design-pattern>
+          </div>
+        </div>
+      </div>
+    </app-pattern-wrapper>
+  `,
+  styleUrls: ['./strategy-simulation.component.css']
 })
 export class StrategySimulationComponent implements AfterViewInit {
   diagramCode: string = '';

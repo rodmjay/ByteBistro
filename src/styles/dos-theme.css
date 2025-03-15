@@ -3,30 +3,30 @@
 /* Base DOS-style background and text */
 body {
   background-color: #000;
-  color: #0f0;
+  color: var(--text-color);
   font-family: 'Courier New', Courier, monospace;
 }
 
 /* Customize PrimeNG button styles */
 .p-button {
   background-color: #000;
-  border: 2px solid #0f0;
-  color: #0f0;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
   font-family: 'Courier New', Courier, monospace;
 }
 
 /* Customize PrimeNG input fields */
 .p-inputtext {
   background-color: #000;
-  border: 2px solid #0f0;
-  color: #0f0;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
   font-family: 'Courier New', Courier, monospace;
 }
 
 /* DOS-style header */
 .dos-header {
   background-color: #111;
-  border-bottom: 2px solid #0f0;
+  border-bottom: 2px solid var(--text-color);
   padding: 10px;
   text-align: center;
   font-size: 1.5em;

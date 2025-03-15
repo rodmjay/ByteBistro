@@ -1,1 +1,166 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --text-color: #00ff00;
+  --bg-color: #000000;
+  --accent-color: #003300;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family, 'Courier New', monospace);
+}
+
+/* DOS-style theme (default) */
+h1, h2, h3, h4, h5, h6, p {
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+input, select {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 5px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--text-color);
+  box-shadow: 0 0 5px var(--text-color);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Theme Classes */
+.theme-dos {
+  --text-color: #00ff00;
+  --bg-color: #000000;
+  --accent-color: #003300;
+  --font-family: 'Courier New', monospace;
+}
+
+.theme-linux {
+  --text-color: #ffffff;
+  --bg-color: #300a24;
+  --accent-color: #ffcc00;
+  --font-family: 'DejaVu Sans Mono', 'Liberation Mono', monospace;
+}
+
+.theme-ubuntu {
+  --text-color: #ffffff;
+  --bg-color: #2d0922;
+  --accent-color: #e95420;
+  --font-family: 'Ubuntu Mono', 'Liberation Mono', monospace;
+}
+
+.theme-windows {
+  --text-color: #ffffff;
+  --bg-color: #012456;
+  --accent-color: #0078d7;
+  --font-family: 'Consolas', 'Lucida Console', monospace;
+}
+
+.theme-macos {
+  --text-color: #ffffff;
+  --bg-color: #1e1e1e;
+  --accent-color: #007aff;
+  --font-family: 'Menlo', 'Monaco', monospace;
+}
+
+.theme-matrix {
+  --text-color: #00ff41;
+  --bg-color: #000000;
+  --accent-color: #008f11;
+  --font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.theme-amber {
+  --text-color: #ffb000;
+  --bg-color: #000000;
+  --accent-color: #ff9000;
+  --font-family: 'VT323', 'Courier New', monospace;
+}
+
+.theme-blue {
+  --text-color: #00b7ff;
+  --bg-color: #000000;
+  --accent-color: #0077ff;
+  --font-family: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+/* Mermaid diagram global styles */
+.mermaid-diagram svg {
+  background-color: transparent !important;
+}
+
+.mermaid-diagram .label {
+  color: var(--text-color) !important;
+  fill: var(--text-color) !important;
+  font-family: var(--font-family, 'Courier New', monospace) !important;
+}
+
+.mermaid-diagram .node rect, 
+.mermaid-diagram .node circle,
+.mermaid-diagram .node polygon {
+  fill: var(--bg-color) !important;
+  stroke: var(--text-color) !important;
+}
+
+.mermaid-diagram .edgePath .path {
+  stroke: var(--text-color) !important;
+}
+
+.mermaid-diagram .edgeLabel {
+  color: var(--text-color) !important;
+  background-color: var(--bg-color) !important;
+  font-family: var(--font-family, 'Courier New', monospace) !important;
+}
+
+/* Class diagram specific styles */
+.mermaid-diagram .classLabel .label {
+  color: var(--text-color) !important;
+  fill: var(--text-color) !important;
+}
+
+.mermaid-diagram .classTitle {
+  fill: var(--text-color) !important;
+}
+
+.mermaid-diagram .relation {
+  stroke: var(--text-color) !important;
+}
+
+.mermaid-diagram .cardinality {
+  fill: var(--text-color) !important;
+}

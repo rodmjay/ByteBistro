@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
       margin: 20px 0; 
       background-color: #111; 
       padding: 10px;
-      border: 1px solid #0f0;
+      border: 1px solid var(--text-color);
       cursor: pointer;
       transition: 0.3s;
     }
@@ -29,26 +29,26 @@ import { CommonModule } from '@angular/common';
       font-size: 14px; 
       display: inline-block;
       text-align: left;
-      color: #0f0;
+      color: var(--text-color);
     }
     :host ::ng-deep .mermaid-diagram svg {
       background-color: transparent !important;
     }
     :host ::ng-deep .mermaid-diagram .label {
-      color: #0f0 !important;
-      fill: #0f0 !important;
+      color: var(--text-color) !important;
+      fill: var(--text-color) !important;
     }
     :host ::ng-deep .mermaid-diagram .node rect, 
     :host ::ng-deep .mermaid-diagram .node circle,
     :host ::ng-deep .mermaid-diagram .node polygon {
       fill: #111 !important;
-      stroke: #0f0 !important;
+      stroke: var(--text-color) !important;
     }
     :host ::ng-deep .mermaid-diagram .edgePath .path {
-      stroke: #0f0 !important;
+      stroke: var(--text-color) !important;
     }
     :host ::ng-deep .mermaid-diagram .edgeLabel {
-      color: #0f0 !important;
+      color: var(--text-color) !important;
       background-color: #111 !important;
     }
   `]
@@ -59,18 +59,20 @@ export class DesignPatternComponent implements AfterViewInit, OnChanges {
   uniqueId = Math.random().toString(36).substring(2, 11);
   
   constructor(private router: Router) {
-    // Initialize mermaid with DOS-style theme
+    // Initialize mermaid with theme-compatible settings
     mermaid.initialize({ 
       startOnLoad: false,
       theme: 'dark',
       securityLevel: 'loose',
+      fontFamily: 'var(--font-family, "Courier New", monospace)',
       themeVariables: {
-        primaryColor: '#0f0',
-        primaryTextColor: '#0f0',
-        primaryBorderColor: '#0f0',
-        lineColor: '#0f0',
+        primaryColor: 'var(--text-color)',
+        primaryTextColor: 'var(--text-color)',
+        primaryBorderColor: 'var(--text-color)',
+        lineColor: 'var(--text-color)',
         secondaryColor: '#111',
-        tertiaryColor: '#000'
+        tertiaryColor: 'var(--bg-color)',
+        fontFamily: 'var(--font-family, "Courier New", monospace)'
       }
     });
   }
@@ -87,23 +89,41 @@ export class DesignPatternComponent implements AfterViewInit, OnChanges {
   
   renderDiagram() {
     const element = document.getElementById(`mermaid-${this.uniqueId}`);
-    if (element) {
+    if (element && this.diagramCode) {
       try {
         // Clear previous content
         element.innerHTML = '';
         
-        // Render new diagram
-        mermaid.render(`mermaid-svg-${this.uniqueId}`, this.diagramCode)
-          .then(result => {
-            element.innerHTML = result.svg;
-          })
-          .catch(error => {
-            console.error('Mermaid rendering error:', error);
-            element.innerHTML = `<pre style="color: #0f0;">${this.diagramCode}</pre>`;
-          });
+        // Add a small delay to ensure the element is ready
+        setTimeout(() => {
+          try {
+            // Check if the diagram code is a class diagram
+            const isClassDiagram = this.diagramCode.trim().startsWith('classDiagram');
+            
+            // Render new diagram
+            mermaid.render(`mermaid-svg-${this.uniqueId}`, this.diagramCode)
+              .then(result => {
+                element.innerHTML = result.svg;
+                
+                // Apply additional styling for SVG elements
+                const svgElement = element.querySelector('svg');
+                if (svgElement) {
+                  svgElement.style.backgroundColor = 'transparent';
+                  svgElement.style.maxWidth = '100%';
+                }
+              })
+              .catch(error => {
+                console.error('Mermaid rendering error:', error);
+                element.innerHTML = `<pre style="color: var(--text-color);">${this.diagramCode}</pre>`;
+              });
+          } catch (innerError) {
+            console.error('Mermaid inner rendering error:', innerError);
+            element.innerHTML = `<pre style="color: var(--text-color);">${this.diagramCode}</pre>`;
+          }
+        }, 200); // Increased delay for better rendering
       } catch (e) {
         console.error('Mermaid rendering error:', e);
-        element.innerHTML = `<pre style="color: #0f0;">${this.diagramCode}</pre>`;
+        element.innerHTML = `<pre style="color: var(--text-color);">${this.diagramCode}</pre>`;
       }
     }
   }

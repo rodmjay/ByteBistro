@@ -1,41 +1,145 @@
 /* Layout styles */
 .container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  background-color: #000; /* DOS-style black background */
-  color: #0f0; /* Bright green text */
-  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family, 'Courier New', Courier, monospace);
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--text-color);
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.subtext {
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-links li:hover, .nav-links li.active {
+  background-color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 /* Sidebar styling */
 .sidebar {
   width: 250px;
-  background-color: #111;
+  background-color: var(--bg-color);
   padding: 20px;
   box-sizing: border-box;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
   margin-bottom: 10px;
   cursor: pointer;
   padding: 5px;
+  color: var(--text-color);
 }
 
 .sidebar li.active {
   font-weight: bold;
   text-decoration: underline;
+  background-color: var(--accent-color);
+}
+
+/* Collapsible section styling */
+.pattern-category {
+  margin-bottom: 15px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.category-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.category-toggle {
+  color: var(--text-color);
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.category-toggle.expanded {
+  transform: rotate(90deg);
+}
+
+.pattern-list {
+  margin-left: 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.pattern-list.expanded {
+  max-height: 1000px; /* Large enough to show all items */
 }
 
 /* Section header styling */
 .sidebar li.section-header {
-  color: #0f0;
+  color: var(--text-color);
   font-weight: bold;
-  border-bottom: 1px solid #0f0;
+  border-bottom: 1px solid var(--text-color);
   margin-top: 15px;
   margin-bottom: 15px;
   cursor: default;
@@ -44,16 +148,16 @@
 /* Pattern detail styling */
 .pattern-detail {
   padding: 20px;
-  color: #0f0;
+  color: var(--text-color);
 }
 
 .pattern-detail h1 {
-  color: #0f0;
+  color: var(--text-color);
   margin-bottom: 20px;
 }
 
 .pattern-detail p {
-  color: #0f0;
+  color: var(--text-color);
   margin-top: 20px;
   margin-bottom: 30px;
 }
@@ -68,10 +172,10 @@
 /* Scheduler-specific styles (if not already in dos-theme.css) */
 #scheduler h1 {
   margin-top: 0;
-  color: #0f0;
+  color: var(--text-color);
 }
 
 #scheduler p {
   font-size: 1.1em;
-  color: #0f0;
+  color: var(--text-color);
 }
