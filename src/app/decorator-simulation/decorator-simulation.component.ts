@@ -1,13 +1,27 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
+import { DesignPatternService } from '../services/design-pattern.service';
 
 @Component({
   selector: 'app-decorator-simulation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, DesignPatternComponent],
   templateUrl: './decorator-simulation.component.html',
   styleUrl: './decorator-simulation.component.css'
 })
 export class DecoratorSimulationComponent implements AfterViewInit {
+  diagramCode: string = '';
+  patternId: number = 0;
+  
+  constructor(private designPatternService: DesignPatternService, private router: Router) {
+    const pattern = this.designPatternService.getPatternByName('Decorator');
+    if (pattern) {
+      this.diagramCode = pattern.diagramCode;
+      this.patternId = pattern.id || 0;
+    }
+  }
 
   ngAfterViewInit(): void {
     const decoratorSelect = document.getElementById('decoratorSelect') as HTMLSelectElement;

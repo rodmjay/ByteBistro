@@ -1,13 +1,27 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
+import { DesignPatternService } from '../services/design-pattern.service';
 
 @Component({
   selector: 'app-strategy-simulation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, DesignPatternComponent],
   templateUrl: './strategy-simulation.component.html',
   styleUrl: './strategy-simulation.component.css'
 })
 export class StrategySimulationComponent implements AfterViewInit {
+  diagramCode: string = '';
+  patternId: number = 0;
+  
+  constructor(private designPatternService: DesignPatternService, private router: Router) {
+    const pattern = this.designPatternService.getPatternByName('Strategy');
+    if (pattern) {
+      this.diagramCode = pattern.diagramCode;
+      this.patternId = pattern.id || 0;
+    }
+  }
 
   ngAfterViewInit(): void {
     const strategySelect = document.getElementById("strategySelect") as HTMLSelectElement;
