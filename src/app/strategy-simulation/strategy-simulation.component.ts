@@ -78,7 +78,7 @@ export class StrategySimulationComponent implements AfterViewInit {
       // Start with Idle context.
       contextEl.textContent = "Idle";
       contextEl.style.background = "transparent";
-      contextEl.style.borderColor = "#0f0";
+      contextEl.style.borderColor = "var(--text-color)";
       logMessage("Context is Idle.");
       
       // Wait before executing.
@@ -90,8 +90,8 @@ export class StrategySimulationComponent implements AfterViewInit {
       // Change state to Processing.
       logMessage("Switching to Processing state...");
       contextEl.textContent = "Processing";
-      contextEl.style.borderColor = "#ff0";
-      contextEl.style.background = "#222";
+      contextEl.style.borderColor = "var(--button-border)";
+      contextEl.style.background = "var(--button-bg)";
       await delay(1000);
       
       // Apply the chosen strategy.
@@ -114,7 +114,7 @@ export class StrategySimulationComponent implements AfterViewInit {
       logMessage("Resetting to Idle state.");
       contextEl.textContent = "Idle";
       contextEl.style.background = "transparent";
-      contextEl.style.borderColor = "#0f0";
+      contextEl.style.borderColor = "var(--text-color)";
     }
     
     // Attach the event listener.

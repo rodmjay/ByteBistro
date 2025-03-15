@@ -59,7 +59,7 @@
   margin-top: 20px;
   text-align: left;
   font-size: 14px;
-  background: #111;
+  background: var(--log-bg);
   padding: 10px;
   border: 1px solid var(--text-color);
   max-height: 150px;
@@ -70,7 +70,7 @@
 #key {
   margin-top: 20px;
   text-align: left;
-  background: #111;
+  background: var(--log-bg);
   padding: 10px;
   border: 1px solid var(--text-color);
 }
@@ -80,7 +80,7 @@
   margin-top: 30px;
   padding: 10px;
   border: 1px solid var(--text-color);
-  background-color: #111;
+  background-color: var(--log-bg);
 }
 
 .diagram-container h2 {

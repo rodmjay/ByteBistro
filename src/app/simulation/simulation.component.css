@@ -78,7 +78,7 @@ button {
   margin-top: 20px;
   text-align: left;
   font-size: 14px;
-  background: #111;
+  background: var(--log-bg);
   padding: 10px;
   border: 1px solid var(--text-color);
   max-height: 200px;
@@ -89,7 +89,7 @@ button {
 #key {
   margin-top: 20px;
   text-align: left;
-  background: #111;
+  background: var(--log-bg);
   padding: 10px;
   border: 1px solid var(--text-color);
 }

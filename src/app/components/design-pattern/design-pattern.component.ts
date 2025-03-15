@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
       transition: 0.3s;
     }
     .mermaid-container:hover {
-      background-color: #222;
+      background-color: var(--button-bg);
     }
     .mermaid-diagram { 
       font-size: 14px; 
@@ -64,15 +64,15 @@ export class DesignPatternComponent implements AfterViewInit, OnChanges {
       startOnLoad: false,
       theme: 'dark',
       securityLevel: 'loose',
-      fontFamily: 'var(--font-family, "Courier New", monospace)',
+      fontFamily: '"Courier New", monospace',
       themeVariables: {
-        primaryColor: 'var(--text-color)',
-        primaryTextColor: 'var(--text-color)',
-        primaryBorderColor: 'var(--text-color)',
-        lineColor: 'var(--text-color)',
+        primaryColor: '#00ff00',
+        primaryTextColor: '#00ff00',
+        primaryBorderColor: '#00ff00',
+        lineColor: '#00ff00',
         secondaryColor: '#111',
-        tertiaryColor: 'var(--bg-color)',
-        fontFamily: 'var(--font-family, "Courier New", monospace)'
+        tertiaryColor: '#000000',
+        fontFamily: '"Courier New", monospace'
       }
     });
   }
