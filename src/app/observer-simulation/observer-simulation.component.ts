@@ -3,13 +3,46 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
 import { DesignPatternService } from '../services/design-pattern.service';
+import { PatternWrapperComponent } from '../components/pattern-wrapper/pattern-wrapper.component';
 
 @Component({
   selector: 'app-observer-simulation',
   standalone: true,
-  imports: [CommonModule, DesignPatternComponent],
-  templateUrl: './observer-simulation.component.html',
-  styleUrl: './observer-simulation.component.css'
+  imports: [CommonModule, DesignPatternComponent, PatternWrapperComponent],
+  template: `
+    <app-pattern-wrapper [patternId]="patternId">
+      <div class="observer-simulation">
+        <h2>Observer Pattern Simulation</h2>
+        <div class="simulation-container">
+          <div class="controls">
+            <select id="exampleSelect">
+              <option value="all">Notify All Observers</option>
+              <option value="random">Notify Random Observers</option>
+            </select>
+            <button id="changeState" class="btn">Change Subject State</button>
+            <button id="stopSimulation" class="btn">Stop Simulation</button>
+          </div>
+          
+          <div class="visualization">
+            <div id="subject" class="subject">Subject</div>
+            <div class="observers-container">
+              <div class="observer">Observer 1</div>
+              <div class="observer">Observer 2</div>
+              <div class="observer">Observer 3</div>
+            </div>
+          </div>
+          
+          <div id="log" class="log"></div>
+          
+          <div class="diagram-container">
+            <h2>Observer Pattern Diagram</h2>
+            <app-design-pattern [diagramCode]="diagramCode" [patternId]="patternId"></app-design-pattern>
+          </div>
+        </div>
+      </div>
+    </app-pattern-wrapper>
+  `,
+  styleUrls: ['./observer-simulation.component.css']
 })
 export class ObserverSimulationComponent implements AfterViewInit {
   simulationRunning = false;

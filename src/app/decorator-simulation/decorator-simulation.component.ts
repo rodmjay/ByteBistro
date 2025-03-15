@@ -3,13 +3,42 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
 import { DesignPatternService } from '../services/design-pattern.service';
+import { PatternWrapperComponent } from '../components/pattern-wrapper/pattern-wrapper.component';
 
 @Component({
   selector: 'app-decorator-simulation',
   standalone: true,
-  imports: [CommonModule, DesignPatternComponent],
-  templateUrl: './decorator-simulation.component.html',
-  styleUrl: './decorator-simulation.component.css'
+  imports: [CommonModule, DesignPatternComponent, PatternWrapperComponent],
+  template: `
+    <app-pattern-wrapper [patternId]="patternId">
+      <div class="decorator-simulation">
+        <h2>Decorator Pattern Simulation</h2>
+        <div class="simulation-container">
+          <div class="controls">
+            <select id="decoratorSelect">
+              <option value="shadow">Shadow Decorator</option>
+              <option value="rounded">Rounded Decorator</option>
+              <option value="colored">Colored Decorator</option>
+            </select>
+            <button id="applyDecorator" class="btn">Apply Decorator</button>
+            <button id="resetDecorator" class="btn">Reset</button>
+          </div>
+          
+          <div class="visualization">
+            <div id="coreComponent" class="core-component">Core Component</div>
+          </div>
+          
+          <div id="log" class="log"></div>
+          
+          <div class="diagram-container">
+            <h2>Decorator Pattern Diagram</h2>
+            <app-design-pattern [diagramCode]="diagramCode" [patternId]="patternId"></app-design-pattern>
+          </div>
+        </div>
+      </div>
+    </app-pattern-wrapper>
+  `,
+  styleUrls: ['./decorator-simulation.component.css']
 })
 export class DecoratorSimulationComponent implements AfterViewInit {
   diagramCode: string = '';

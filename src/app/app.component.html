@@ -1,7 +1,10 @@
 <div class="container">
   <!-- Top Navigation Bar -->
   <nav class="top-nav">
-    <div class="logo">Byte Bistro</div>
+    <div class="logo-container">
+      <div class="logo">Byte Bistro</div>
+      <div class="subtext">FREE TECH INFO</div>
+    </div>
     <ul class="nav-links">
       <li [routerLinkActive]="'active'" [routerLink]="['/patterns']">Design Patterns</li>
       <li [routerLinkActive]="'active'" [routerLink]="['/languages']">Programming Languages</li>
@@ -12,36 +15,81 @@
   <div class="content-wrapper">
     <!-- Left Sidebar with design pattern list -->
     <aside class="sidebar">
-      <ul>
-        <!-- Design Patterns Section Header -->
-        <li class="section-header">Design Patterns</li>
-        
-        <!-- Scheduler and Simulation components -->
-        <li 
-          [routerLinkActive]="'active'"
-          [routerLink]="['/scheduler']">
-          Scheduler Queue
-        </li>
-        <li 
-          [routerLinkActive]="'active'"
-          [routerLink]="['/simulation']">
-          Sender & Handlers
-        </li>
-        
-        <!-- Dynamically generate pattern list items -->
-        <li *ngFor="let pattern of designPatterns"
-          [routerLinkActive]="'active'"
-          [routerLink]="['/pattern', pattern.id]">
-          {{ pattern.name }}
-        </li>
-        
-        <!-- View All Patterns -->
-        <li 
-          [routerLinkActive]="'active'"
-          [routerLink]="['/patterns']">
-          View All Patterns
-        </li>
-      </ul>
+      <!-- Utility Patterns Section -->
+      <div class="pattern-category">
+        <div class="category-header" (click)="toggleCategory('utility')">
+          <h3>Utility Components</h3>
+          <span class="category-toggle" [class.expanded]="categoryExpanded['utility']">›</span>
+        </div>
+        <ul class="pattern-list" [class.expanded]="categoryExpanded['utility']">
+          <li 
+            [routerLinkActive]="'active'"
+            [routerLink]="['/scheduler']">
+            Scheduler Queue
+          </li>
+          <li 
+            [routerLinkActive]="'active'"
+            [routerLink]="['/simulation']">
+            Sender & Handlers
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Creational Patterns Section -->
+      <div class="pattern-category">
+        <div class="category-header" (click)="toggleCategory('creational')">
+          <h3>Creational Patterns</h3>
+          <span class="category-toggle" [class.expanded]="categoryExpanded['creational']">›</span>
+        </div>
+        <ul class="pattern-list" [class.expanded]="categoryExpanded['creational']">
+          <li *ngFor="let pattern of getPatternsByCategory('creational')"
+            [routerLinkActive]="'active'"
+            [routerLink]="['/pattern', pattern.id]">
+            {{ pattern.name }}
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Structural Patterns Section -->
+      <div class="pattern-category">
+        <div class="category-header" (click)="toggleCategory('structural')">
+          <h3>Structural Patterns</h3>
+          <span class="category-toggle" [class.expanded]="categoryExpanded['structural']">›</span>
+        </div>
+        <ul class="pattern-list" [class.expanded]="categoryExpanded['structural']">
+          <li *ngFor="let pattern of getPatternsByCategory('structural')"
+            [routerLinkActive]="'active'"
+            [routerLink]="['/pattern', pattern.id]">
+            {{ pattern.name }}
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Behavioral Patterns Section -->
+      <div class="pattern-category">
+        <div class="category-header" (click)="toggleCategory('behavioral')">
+          <h3>Behavioral Patterns</h3>
+          <span class="category-toggle" [class.expanded]="categoryExpanded['behavioral']">›</span>
+        </div>
+        <ul class="pattern-list" [class.expanded]="categoryExpanded['behavioral']">
+          <li *ngFor="let pattern of getPatternsByCategory('behavioral')"
+            [routerLinkActive]="'active'"
+            [routerLink]="['/pattern', pattern.id]">
+            {{ pattern.name }}
+          </li>
+        </ul>
+      </div>
+      
+      <!-- View All Patterns -->
+      <div class="pattern-category">
+        <ul>
+          <li 
+            [routerLinkActive]="'active'"
+            [routerLink]="['/patterns']">
+            View All Patterns
+          </li>
+        </ul>
+      </div>
     </aside>
 
     <!-- Main Content Area -->

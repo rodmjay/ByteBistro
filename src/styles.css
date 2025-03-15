@@ -69,6 +69,30 @@ input:focus, select:focus {
   --accent-color: #003300;
 }
 
+.theme-linux {
+  --text-color: #ffffff;
+  --bg-color: #300a24;
+  --accent-color: #ffcc00;
+}
+
+.theme-ubuntu {
+  --text-color: #ffffff;
+  --bg-color: #2d0922;
+  --accent-color: #e95420;
+}
+
+.theme-windows {
+  --text-color: #ffffff;
+  --bg-color: #012456;
+  --accent-color: #0078d7;
+}
+
+.theme-macos {
+  --text-color: #ffffff;
+  --bg-color: #1e1e1e;
+  --accent-color: #007aff;
+}
+
 .theme-matrix {
   --text-color: #00ff41;
   --bg-color: #000000;

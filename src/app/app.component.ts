@@ -41,8 +41,53 @@ export class AppComponent {
   // Design patterns loaded from the service
   designPatterns: DesignPattern[] = [];
   
+  // Track expanded state of each category
+  categoryExpanded: { [key: string]: boolean } = {
+    'utility': false,
+    'creational': false,
+    'structural': false,
+    'behavioral': false
+  };
+  
   constructor(private designPatternService: DesignPatternService) {
     // Load design patterns from the service
     this.designPatterns = this.designPatternService.loadDesignPatterns();
+  }
+  
+  /**
+   * Toggle the expanded state of a category
+   * @param category The category to toggle
+   */
+  toggleCategory(category: string): void {
+    this.categoryExpanded[category] = !this.categoryExpanded[category];
+  }
+  
+  /**
+   * Get patterns filtered by category
+   * @param category The category to filter by
+   * @returns Array of design patterns in the specified category
+   */
+  getPatternsByCategory(category: string): DesignPattern[] {
+    return this.designPatterns.filter(pattern => {
+      const patternName = pattern.name;
+      
+      // Categorize patterns based on their names
+      const creationalPatterns = ['Singleton', 'Factory Method', 'Abstract Factory', 'Builder', 'Prototype'];
+      const structuralPatterns = ['Adapter', 'Bridge', 'Composite', 'Decorator', 'Facade', 'Flyweight', 'Proxy'];
+      const behavioralPatterns = [
+        'Chain of Responsibility', 'Command', 'Interpreter', 'Iterator', 'Mediator', 
+        'Memento', 'Observer', 'State', 'Strategy', 'Template Method', 'Visitor'
+      ];
+      
+      if (category === 'creational') {
+        return creationalPatterns.includes(patternName);
+      } else if (category === 'structural') {
+        return structuralPatterns.includes(patternName);
+      } else if (category === 'behavioral') {
+        return behavioralPatterns.includes(patternName);
+      }
+      
+      return false;
+    });
   }
 }

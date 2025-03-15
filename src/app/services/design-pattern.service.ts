@@ -4,6 +4,11 @@ export interface DesignPattern {
   id?: number;
   name: string;
   diagramCode: string;
+  category?: string;
+  description?: string;
+  examples?: string[];
+  useCases?: string[];
+  route?: string;
 }
 
 @Injectable({
@@ -12,6 +17,91 @@ export interface DesignPattern {
 export class DesignPatternService {
   
   constructor() { }
+  
+  /**
+   * Get the category of a pattern by name
+   * @param patternName The name of the pattern
+   * @returns The category of the pattern (creational, structural, behavioral)
+   */
+  getPatternCategory(patternName: string): string {
+    const creationalPatterns = ['Singleton', 'Factory Method', 'Abstract Factory', 'Builder', 'Prototype'];
+    const structuralPatterns = ['Adapter', 'Bridge', 'Composite', 'Decorator', 'Facade', 'Flyweight', 'Proxy'];
+    const behavioralPatterns = [
+      'Chain of Responsibility', 'Command', 'Interpreter', 'Iterator', 'Mediator', 
+      'Memento', 'Observer', 'State', 'Strategy', 'Template Method', 'Visitor'
+    ];
+    
+    if (creationalPatterns.includes(patternName)) {
+      return 'creational';
+    } else if (structuralPatterns.includes(patternName)) {
+      return 'structural';
+    } else if (behavioralPatterns.includes(patternName)) {
+      return 'behavioral';
+    }
+    
+    return 'unknown';
+  }
+
+  /**
+   * Get a pattern by its ID
+   * @param id The ID of the pattern to retrieve
+   * @returns The design pattern object or undefined if not found
+   */
+  getPatternById(id: number): DesignPattern | undefined {
+    return this.loadDesignPatterns().find(pattern => pattern.id === id);
+  }
+
+  /**
+   * Get the next pattern ID in the same category
+   * @param currentId The current pattern ID
+   * @returns The next pattern ID or null if there is no next pattern
+   */
+  getNextPatternId(currentId: number): number | null {
+    const patterns = this.loadDesignPatterns();
+    const currentPattern = patterns.find(p => p.id === currentId);
+    
+    if (!currentPattern) return null;
+    
+    const currentCategory = this.getPatternCategory(currentPattern.name);
+    const patternsInCategory = patterns.filter(p => 
+      this.getPatternCategory(p.name) === currentCategory
+    );
+    
+    const currentIndex = patternsInCategory.findIndex(p => p.id === currentId);
+    
+    if (currentIndex < patternsInCategory.length - 1) {
+      const nextPattern = patternsInCategory[currentIndex + 1];
+      return nextPattern && typeof nextPattern.id === 'number' ? nextPattern.id : null;
+    }
+    
+    return null;
+  }
+
+  /**
+   * Get the previous pattern ID in the same category
+   * @param currentId The current pattern ID
+   * @returns The previous pattern ID or null if there is no previous pattern
+   */
+  getPreviousPatternId(currentId: number): number | null {
+    const patterns = this.loadDesignPatterns();
+    const currentPattern = patterns.find(p => p.id === currentId);
+    
+    if (!currentPattern) return null;
+    
+    const currentCategory = this.getPatternCategory(currentPattern.name);
+    const patternsInCategory = patterns.filter(p => 
+      this.getPatternCategory(p.name) === currentCategory
+    );
+    
+    const currentIndex = patternsInCategory.findIndex(p => p.id === currentId);
+    
+    if (currentIndex > 0) {
+      const prevPattern = patternsInCategory[currentIndex - 1];
+      return prevPattern && typeof prevPattern.id === 'number' ? prevPattern.id : null;
+    }
+    
+    return null;
+  }
   
   /**
    * Process CSV data into design pattern objects with Mermaid diagram code

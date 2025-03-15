@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
     <div class="theme-switcher">
       <select [(ngModel)]="selectedTheme" (change)="changeTheme()" class="theme-select">
         <option value="dos">DOS Theme</option>
+        <option value="linux">Linux Terminal</option>
+        <option value="ubuntu">Ubuntu Terminal</option>
+        <option value="windows">Windows PowerShell</option>
+        <option value="macos">macOS Terminal</option>
         <option value="matrix">Matrix Theme</option>
         <option value="amber">Amber Terminal</option>
         <option value="blue">Blue Terminal</option>
@@ -66,6 +70,26 @@ export class ThemeSwitcherComponent {
     
     // Apply theme-specific colors
     switch (theme) {
+      case 'linux':
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+        document.documentElement.style.setProperty('--bg-color', '#300a24');
+        document.documentElement.style.setProperty('--accent-color', '#ffcc00');
+        break;
+      case 'ubuntu':
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+        document.documentElement.style.setProperty('--bg-color', '#2d0922');
+        document.documentElement.style.setProperty('--accent-color', '#e95420');
+        break;
+      case 'windows':
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+        document.documentElement.style.setProperty('--bg-color', '#012456');
+        document.documentElement.style.setProperty('--accent-color', '#0078d7');
+        break;
+      case 'macos':
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+        document.documentElement.style.setProperty('--bg-color', '#1e1e1e');
+        document.documentElement.style.setProperty('--accent-color', '#007aff');
+        break;
       case 'matrix':
         document.documentElement.style.setProperty('--text-color', '#00ff41');
         document.documentElement.style.setProperty('--bg-color', '#000000');

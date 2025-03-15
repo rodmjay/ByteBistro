@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DesignPatternComponent } from '../components/design-pattern/design-pattern.component';
 import { DesignPatternService } from '../services/design-pattern.service';
+import { PatternWrapperComponent } from '../components/pattern-wrapper/pattern-wrapper.component';
 
 interface Command {
   name: string;
@@ -13,9 +14,37 @@ interface Command {
 @Component({
   selector: 'app-command-simulation',
   standalone: true,
-  imports: [CommonModule, DesignPatternComponent],
-  templateUrl: './command-simulation.component.html',
-  styleUrl: './command-simulation.component.css'
+  imports: [CommonModule, DesignPatternComponent, PatternWrapperComponent],
+  template: `
+    <app-pattern-wrapper [patternId]="patternId">
+      <div class="command-simulation">
+        <h2>Command Pattern Simulation</h2>
+        <div class="simulation-container">
+          <div class="controls">
+            <button id="addStart" class="btn">Add Start Command</button>
+            <button id="addStop" class="btn">Add Stop Command</button>
+            <button id="addReset" class="btn">Add Reset Command</button>
+            <button id="executeCommands" class="btn">Execute All</button>
+            <button id="undoCommand" class="btn">Undo Last</button>
+            <button id="clearQueue" class="btn">Clear Queue</button>
+          </div>
+          
+          <div class="visualization">
+            <h3>Command Queue:</h3>
+            <ul id="commandQueue" class="command-queue"></ul>
+          </div>
+          
+          <div id="log" class="log"></div>
+          
+          <div class="diagram-container">
+            <h2>Command Pattern Diagram</h2>
+            <app-design-pattern [diagramCode]="diagramCode" [patternId]="patternId"></app-design-pattern>
+          </div>
+        </div>
+      </div>
+    </app-pattern-wrapper>
+  `,
+  styleUrls: ['./command-simulation.component.css']
 })
 export class CommandSimulationComponent implements AfterViewInit {
   private commandQueue: Command[] = [];
